@@ -15,33 +15,40 @@ interface ProgressChartProps {
   variant?: 'weight' | 'calories' | 'adherence';
 }
 
+type ChartConfig = {
+  dataKey: keyof ProgressData;
+  color: string;
+  label: string;
+  format: (value: number) => string;
+};
+
 export function ProgressChart({ data, variant = 'weight' }: ProgressChartProps) {
-  const getChartConfig = () => {
+  const getChartConfig = (): ChartConfig => {
     switch (variant) {
       case 'weight':
         return {
-          dataKey: 'weight',
+          dataKey: 'weight' as keyof ProgressData,
           color: '#8b5cf6',
           label: 'Weight (lbs)',
           format: (value: number) => `${value} lbs`,
         };
       case 'calories':
         return {
-          dataKey: 'calories',
+          dataKey: 'calories' as keyof ProgressData,
           color: '#f59e0b',
           label: 'Calories',
           format: (value: number) => `${value} cal`,
         };
       case 'adherence':
         return {
-          dataKey: 'adherence',
+          dataKey: 'adherence' as keyof ProgressData,
           color: '#10b981',
           label: 'Adherence (%)',
           format: (value: number) => `${value}%`,
         };
       default:
         return {
-          dataKey: 'weight',
+          dataKey: 'weight' as keyof ProgressData,
           color: '#8b5cf6',
           label: 'Weight (lbs)',
           format: (value: number) => `${value} lbs`,
@@ -50,8 +57,8 @@ export function ProgressChart({ data, variant = 'weight' }: ProgressChartProps) 
   };
 
   const config = getChartConfig();
-  const currentValue = data[data.length - 1]?.[config.dataKey] || 0;
-  const previousValue = data[data.length - 2]?.[config.dataKey] || currentValue;
+  const currentValue = (data[data.length - 1]?.[config.dataKey] as number) || 0;
+  const previousValue = (data[data.length - 2]?.[config.dataKey] as number) || currentValue;
   const change = currentValue - previousValue;
   const isPositive = change > 0;
 
@@ -147,7 +154,7 @@ export function ProgressChart({ data, variant = 'weight' }: ProgressChartProps) 
           <p className="text-xs text-gray-600">Best Day</p>
           <p className="font-semibold text-sm">
             {data.reduce((best, current) => 
-              current[config.dataKey] > best[config.dataKey] ? current : best
+              (current[config.dataKey] as number) > (best[config.dataKey] as number) ? current : best
             ).day}
           </p>
         </div>
@@ -155,7 +162,7 @@ export function ProgressChart({ data, variant = 'weight' }: ProgressChartProps) 
           <p className="text-xs text-gray-600">Average</p>
           <p className="font-semibold text-sm">
             {config.format(
-              data.reduce((sum, item) => sum + item[config.dataKey], 0) / data.length
+              data.reduce((sum, item) => sum + (item[config.dataKey] as number), 0) / data.length
             )}
           </p>
         </div>
