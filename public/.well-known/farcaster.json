@@ -1,0 +1,30 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "frame": {
+    "version": "1",
+    "name": "NutriFlow",
+    "subtitle": "Built with Zara",
+    "description": "NutriFlow is a Base Mini App built with Zara.",
+    "iconUrl": "https://0co.to/images/zara-2.png",
+    "homeUrl": "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app",
+    "splashImageUrl": "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app/image.png",
+    "tagline": "NutriFlow",
+    "screenshotUrls": [
+      "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app/screenshot.png",
+      "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app/screenshot.png"
+    ],
+    "primaryCategory": "social",
+    "tags": [
+      "base",
+      "miniapp",
+      "onchainkit"
+    ],
+    "webhookUrl": "https://c312f62076924c41a42658fa964603a3-w1ng.vercel.app/api/webhook"
+  }
+}

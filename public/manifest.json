@@ -1,0 +1,14 @@
+{
+  "name": "NutriFlow",
+  "description": "NutriFlow is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://c312f620-7692-4c41-a426-58fa964603a3.vercel.app",
+  "properties": {
+    "app": {
+      "name": "NutriFlow",
+      "description": "NutriFlow is a Base Mini App built with Zara.",
+      "url": "https://c312f620-7692-4c41-a426-58fa964603a3.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
